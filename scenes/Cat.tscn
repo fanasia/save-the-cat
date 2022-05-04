@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/sheets/cat.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Cat.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=7]
 flags = 4
@@ -50,11 +51,21 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Cat" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id=15]
+
+[node name="Cat" type="RigidBody2D" groups=["cat"]]
+gravity_scale = 0.0
+script = ExtResource( 2 )
+min_speed = 100
+max_speed = 150
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -1 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 6 )
-frame = 7
+frame = 1
 playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -1 )
+shape = SubResource( 15 )
