@@ -24,6 +24,20 @@ func _integrate_forces(state):
 		xform.origin.y = screensize.y
 	state.set_transform(xform)
 	# wanna make it turn back when reach edge of the screen
+	
+	if linear_velocity == Vector2.ZERO:
+		$AnimatedSprite.play("Idle")
+	else:
+		if linear_velocity.x < 0:
+			$AnimatedSprite.flip_h = false
+			$AnimatedSprite.play("GoLeft")
+		elif linear_velocity.x > 0:
+			$AnimatedSprite.flip_h = true
+			$AnimatedSprite.play("GoLeft")
+		elif linear_velocity.y < 0:
+			$AnimatedSprite.play("GoDown")
+		elif linear_velocity.y > 0:
+			$AnimatedSprite.play("GoUp")
 
 #func handlecatplaced():
 	# wait for timeout

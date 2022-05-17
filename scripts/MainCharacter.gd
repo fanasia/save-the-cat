@@ -8,6 +8,15 @@ var direction : Vector2 = Vector2()
 
 var picked = false
 var cat
+var is_walking = false
+var player_animation
+
+enum ANIMATION {
+	WALKDOWN,
+	WALKUP,
+	WALKLEFT,
+	WALKRIGHT
+}
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -16,25 +25,67 @@ func _ready():
 func read_input():
 	velocity = Vector2()
 	
-	if Input.is_action_pressed("up"):
-		velocity.y -= 1
-		direction = Vector2(0, -1)
-		$AnimatedSprite.play("GoTop")
-		
-	if Input.is_action_pressed("down"):
-		velocity.y += 1
-		direction = Vector2(0, 1)
-		$AnimatedSprite.play("GoDown")
-		
-	if Input.is_action_pressed("left"):
-		velocity.x -= 1
-		direction = Vector2(-1, 0)
-		$AnimatedSprite.play("GoLeft")
-		
-	if Input.is_action_pressed("right"):
-		velocity.x += 1
-		direction = Vector2(1, 0)
-		$AnimatedSprite.play("GoRight")
+	if picked:
+		if Input.is_action_pressed("up"):
+			velocity.y -= 1
+			$AnimatedSprite.play("GoTop_Cat")
+			player_animation = ANIMATION.WALKUP
+		if Input.is_action_pressed("down"):
+			velocity.y += 1
+			$AnimatedSprite.play("GoDown_Cat")
+			player_animation = ANIMATION.WALKDOWN
+		if Input.is_action_pressed("left"):
+			velocity.x -= 1
+			$AnimatedSprite.flip_h = false
+			$AnimatedSprite.play("GoLeft_Cat")
+			player_animation = ANIMATION.WALKLEFT
+		if Input.is_action_pressed("right"):
+			velocity.x += 1
+			$AnimatedSprite.flip_h = true
+			$AnimatedSprite.play("GoLeft_Cat")
+			player_animation = ANIMATION.WALKRIGHT
+	else:
+		if Input.is_action_pressed("up"):
+			velocity.y -= 1
+			$AnimatedSprite.play("GoTop")
+			player_animation = ANIMATION.WALKUP
+		if Input.is_action_pressed("down"):
+			velocity.y += 1
+			$AnimatedSprite.play("GoDown")
+			player_animation = ANIMATION.WALKDOWN
+		if Input.is_action_pressed("left"):
+			velocity.x -= 1
+			$AnimatedSprite.flip_h = false
+			$AnimatedSprite.play("GoLeft")
+			player_animation = ANIMATION.WALKLEFT
+		if Input.is_action_pressed("right"):
+			velocity.x += 1
+			$AnimatedSprite.flip_h = true
+			$AnimatedSprite.play("GoLeft")
+			player_animation = ANIMATION.WALKRIGHT
+	
+	if player_animation == ANIMATION.WALKUP and velocity == Vector2.ZERO:
+		if picked:
+			$AnimatedSprite.play("IdleTop_Cat")
+		else:
+			$AnimatedSprite.play("IdleTop")
+	if player_animation == ANIMATION.WALKDOWN and velocity == Vector2.ZERO:
+		if picked:
+			$AnimatedSprite.play("IdleDown_Cat")
+		else:
+			$AnimatedSprite.play("IdleDown")
+	if player_animation == ANIMATION.WALKLEFT and velocity == Vector2.ZERO:
+		$AnimatedSprite.flip_h = false
+		if picked:
+			$AnimatedSprite.play("IdleLeft_Cat")
+		else:
+			$AnimatedSprite.play("IdleLeft")
+	if player_animation == ANIMATION.WALKRIGHT and velocity == Vector2.ZERO:
+		$AnimatedSprite.flip_h = true
+		if picked:
+			$AnimatedSprite.play("IdleLeft_Cat")
+		else:
+			$AnimatedSprite.play("IdleLeft")
 	
 	velocity = velocity.normalized()
 	velocity = move_and_slide(velocity * 200)

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TX Shadow Plant.png-c2298ad286d8111ea144bf0706f989f5.stex"
+path="res://.import/TX Shadow Plant.png-7a699e438604593e58a7dae857ccdfd6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sheets/Map/TX Shadow Plant.png"
-dest_files=[ "res://.import/TX Shadow Plant.png-c2298ad286d8111ea144bf0706f989f5.stex" ]
+source_file="res://assets/sheets/map/TX Shadow Plant.png"
+dest_files=[ "res://.import/TX Shadow Plant.png-7a699e438604593e58a7dae857ccdfd6.stex" ]
 
 [params]
 
