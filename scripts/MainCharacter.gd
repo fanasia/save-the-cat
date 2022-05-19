@@ -101,6 +101,7 @@ func _physics_process(delta):
 			for body in $CatDetection.get_overlapping_bodies():
 				if body.is_in_group("cat"):
 					picked = true
+					$PickUpEffect.play()
 					body.queue_free()
 		else:
 			picked = false

@@ -28,16 +28,18 @@ func _integrate_forces(state):
 	if linear_velocity == Vector2.ZERO:
 		$AnimatedSprite.play("Idle")
 	else:
-		if linear_velocity.x < 0:
-			$AnimatedSprite.flip_h = false
-			$AnimatedSprite.play("GoLeft")
-		elif linear_velocity.x > 0:
+		if rotation == -PI/2:
+			$AnimatedSprite.play("GoUp")
+		if rotation == PI/2:
+			$AnimatedSprite.play("GoDown")
+		if (rotation <= 0 and rotation > -(PI/2)) or (rotation >= 0 and rotation < PI/2): #right
+#			print("I'm going right", rotation)
 			$AnimatedSprite.flip_h = true
 			$AnimatedSprite.play("GoLeft")
-		elif linear_velocity.y < 0:
-			$AnimatedSprite.play("GoDown")
-		elif linear_velocity.y > 0:
-			$AnimatedSprite.play("GoUp")
+		if (rotation <= -(PI/2) and rotation > -(PI) or (rotation >= PI/2 and rotation <= PI)): #left
+#			print("I'm going left", rotation)
+			$AnimatedSprite.flip_h = false
+			$AnimatedSprite.play("GoLeft")
 
 #func handlecatplaced():
 	# wait for timeout

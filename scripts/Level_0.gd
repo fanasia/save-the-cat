@@ -1,31 +1,50 @@
 extends Node2D
 
 export(PackedScene) var witch_scene
+
+const GameOverScreen = preload("res://scenes/GameOverScreen.tscn")
+const PauseScene = preload("res://scenes/PauseScene2.tscn")
+
 onready var score = 0
-onready var time = 30
+onready var time = 45
+
+signal game_over
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 	new_game()
+
+func _unhandled_input(event):
+	if event.is_action_pressed("pause"):
+		var pause = PauseScene.instance()
+		add_child(pause)
+		get_tree().paused = true
+#		$PauseScene.visible = true
+#		get_tree().paused = true
 	
 func _process(delta):
+	if $BackgroundMusic.playing == false:
+		$BackgroundMusic.play()
+	
 	$HUD.update_score(score)
 	$HUD.update_time(time)
 	
 	if time == 0:
-		game_over()
 		var final_score = score
-		$HUD.update_final_score(final_score)
-		$HUD/GameOverScreen.show()
+		game_over(final_score)
 
-func game_over():
+func game_over(final_score):
 	$WitchTimer.stop()
 	$CatSpawnTimer.stop()
-#	$LevelTimer.stop()
+	$LevelTimer.stop()
+
+	var game_over = GameOverScreen.instance()
+	add_child(game_over)
+	game_over.update_final_score(final_score)
+	get_tree().paused = true
 
 func new_game():
-	$HUD/GameOverScreen.hide()
 	$StartTimer.start()
 	
 	$HUD.update_score(score)

@@ -29,9 +29,9 @@
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ ExtResource( 16 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 14 ), ExtResource( 6 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 18 ), ExtResource( 23 ) ],
 "loop": true,
-"name": "Idle",
+"name": "GoDown",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 8 ), ExtResource( 11 ) ],
@@ -39,20 +39,24 @@ animations = [ {
 "name": "GoUp",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 14 ), ExtResource( 6 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 18 ), ExtResource( 23 ) ],
-"loop": true,
-"name": "GoDown",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "GoLeft",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=15]
+[sub_resource type="CircleShape2D" id=7]
+radius = 23.0868
 
 [node name="Cat" type="RigidBody2D" groups=["cat"]]
+light_mask = 0
+z_as_relative = false
+collision_mask = 2
 gravity_scale = 0.0
 script = ExtResource( 2 )
 min_speed = 100
@@ -62,10 +66,8 @@ max_speed = 150
 position = Vector2( 0, -1 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 6 )
-animation = "GoLeft"
-frame = 5
+animation = "Idle"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -1 )
-shape = SubResource( 15 )
+shape = SubResource( 7 )
