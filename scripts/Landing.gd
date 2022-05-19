@@ -4,6 +4,10 @@ const HelpScene = preload("res://scenes/HowToPlayScreen.tscn")
 
 func _ready():
 	$VBoxContainer/StartButton.grab_focus()
+	
+func _process(delta):
+	if $ThemeMusic.playing == false:
+		$ThemeMusic.play()
 
 func _on_StartButton_pressed():
 	get_tree().change_scene("res://scenes/Level_0.tscn")

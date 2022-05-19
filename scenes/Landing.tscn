@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Landing.gd" type="Script" id=1]
 [ext_resource path="res://assets/backgrounds/landing_background.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/sleepy-cat-font/SleepyCatRegular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/music/8bit _ basic _ 3.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
@@ -58,6 +59,10 @@ margin_top = 81.0
 margin_right = 149.0
 margin_bottom = 101.0
 text = "Quit"
+
+[node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -6.0
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HowToPlayButton" to="." method="_on_HowToPlayButton_pressed"]

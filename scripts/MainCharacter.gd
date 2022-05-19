@@ -116,7 +116,7 @@ func _physics_process(delta):
 			for body in $CatDetection.get_overlapping_areas():
 				if body.is_in_group("safe_zone"):
 					# wait for timeout
-					yield(get_tree().create_timer(4), "timeout")
+					yield(get_tree().create_timer(5), "timeout")
 			
 			var direction = rand_range(0, 360)
 			if (cat and weakref(cat).get_ref()):

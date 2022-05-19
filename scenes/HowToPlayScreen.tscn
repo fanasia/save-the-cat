@@ -30,9 +30,9 @@ margin_bottom = 600.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
 margin_left = 295.0
-margin_top = 131.0
+margin_top = 99.0
 margin_right = 728.0
-margin_bottom = 469.0
+margin_bottom = 501.0
 custom_constants/separation = 20
 
 [node name="Title" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
@@ -45,10 +45,12 @@ align = 1
 [node name="Instruction" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
 margin_top = 77.0
 margin_right = 433.0
-margin_bottom = 298.0
+margin_bottom = 362.0
 custom_fonts/font = SubResource( 4 )
-text = "Goal : Save as many cats as you can 
-before the time runs out!
+text = "Goal : Save as many cats as you can by 
+putting it in the center circle before 
+the time runs out! 
+Watch out for the witches!!
 
 Control:
 Arrow key / AWSD : Left,Up, Down, Right
@@ -56,9 +58,9 @@ Space : Pick-up and put down cat
 Alt : Pause Game"
 
 [node name="BackButton" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
-margin_top = 318.0
+margin_top = 382.0
 margin_right = 433.0
-margin_bottom = 338.0
+margin_bottom = 402.0
 text = "Back"
 
 [connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]

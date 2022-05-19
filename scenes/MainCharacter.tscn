@@ -69,29 +69,14 @@ animations = [ {
 "name": "GoLeft",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 36 ) ],
+"frames": [ ExtResource( 46 ) ],
 "loop": true,
-"name": "IdleTop_Cat",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 55 ) ],
-"loop": true,
-"name": "IdleDown_Cat",
+"name": "IdleDown",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 53 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 54 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "GoLeft_Cat",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 37 ) ],
-"loop": true,
-"name": "IdleLeft",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 43 ) ],
-"loop": true,
-"name": "IdleTop",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 22 ), ExtResource( 29 ), ExtResource( 21 ), ExtResource( 30 ), ExtResource( 26 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 23 ) ],
@@ -104,14 +89,29 @@ animations = [ {
 "name": "GoTop_Cat",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 46 ) ],
-"loop": true,
-"name": "IdleDown",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 45 ) ],
 "loop": true,
 "name": "IdleLeft_Cat",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 55 ) ],
+"loop": true,
+"name": "IdleDown_Cat",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 37 ) ],
+"loop": true,
+"name": "IdleLeft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 36 ) ],
+"loop": true,
+"name": "IdleTop_Cat",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 43 ) ],
+"loop": true,
+"name": "IdleTop",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 44 ), ExtResource( 40 ), ExtResource( 32 ), ExtResource( 35 ), ExtResource( 34 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 38 ) ],
@@ -124,7 +124,7 @@ animations = [ {
 radius = 22.0
 
 [sub_resource type="CircleShape2D" id=19]
-radius = 34.0
+radius = 22.0907
 
 [node name="MainCharacter" type="KinematicBody2D"]
 collision_mask = 0
@@ -144,7 +144,7 @@ shape = SubResource( 18 )
 [node name="CatDetection" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CatDetection"]
-position = Vector2( 0, -2 )
+position = Vector2( 0, 2 )
 shape = SubResource( 19 )
 
 [node name="CatPosition" type="Position2D" parent="."]
