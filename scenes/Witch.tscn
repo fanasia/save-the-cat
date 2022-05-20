@@ -6,14 +6,14 @@
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "FlyLeft_Cat",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "FlyLeft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "FlyLeft_Cat",
 "speed": 5.0
 } ]
 
@@ -28,6 +28,7 @@ radius = 33.0
 
 [node name="Witch" type="KinematicBody2D"]
 z_as_relative = false
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

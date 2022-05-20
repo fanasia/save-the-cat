@@ -15,3 +15,7 @@ func _on_UnpauseButton_pressed():
 func _on_HelpButton_pressed():
 	var help = HelpScene.instance()
 	add_child(help)
+
+
+func _on_QuitButton_pressed():
+	get_tree().quit()
