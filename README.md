@@ -8,28 +8,34 @@ You are a little girl in a small village. You like cats so much, thus you have a
 
 **Control**
 
-Save as many cats as you can before the time runs out by putting them in the center circle of the map. The center circle is a safe zone, which means the witch can not steal the cat when it’s inside the circle. But cats are uncontrollable! This means that even after you put the cats in the circle, they will move again not long after. You also need to protect them before the witch steals them. The game will end when the time runs out and your score will be counted by the number of cats inside the circle when the game ends.
+Save as many cats as you can before the time runs out by putting them in the center circle of the map. The center circle is a safe zone, which means the witch can not steal the cat when it’s inside the circle. But cats are uncontrollable! This means that even after you put the cats in the circle, they will move again not long after. You also need to protect them before the witch steals them. The game will end when the time runs out and your score will be counted by the number of cats inside the circle when the game ends. <br />
 
-The input in this game is keyboard.
+The input in this game is keyboard. <br />
 
-Arrow Key (Up, Right, Down, Left) / AWSD: Control movement of the player
-Space bar: pick up and put down cats
-Alt: pause game
+Arrow Key (Up, Right, Down, Left) / AWSD: Control movement of the player <br />
+Space bar: pick up and put down cats <br />
+Alt: pause game <br />
 
 **Technology**
+
 Godot
 
 **Working Demo (Google Drive)**
+
 https://drive.google.com/file/d/1w3P2R0NwuzBq1itstSdgN0CWw6LvyuUE/view?usp=sharing
 
 **Link Free Assets**
-Maps: https://cainos.itch.io/pixel-art-top-down-basic
+
+Maps: https://cainos.itch.io/pixel-art-top-down-basic <br />
+
 Character: Commission by my friend Naufal Tan (https://naufaltan.itch.io/) 
-https://drive.google.com/drive/folders/1OINLY1ugZfp29Ux7BrsW0KJyv33uohB0
+https://drive.google.com/drive/folders/1OINLY1ugZfp29Ux7BrsW0KJyv33uohB0 <br />
+
 Music: 
-Rhythmic 8Bit Audio https://musicbroz.itch.io/free-samples-of-musicbroz-1 
+Rhythmic 8Bit Audio https://musicbroz.itch.io/free-samples-of-musicbroz-1 <br />
+
 Cat SFX: Sweet Kitty Meow
-https://mixkit.co/free-sound-effects/cat/
+https://mixkit.co/free-sound-effects/cat/ <br />
 
 
 **Current Bugs**
@@ -44,6 +50,7 @@ This bug is because I only code for the 4 movement and not handling the diagonal
 Further Improvement
 
 **Next Version**
+
 My initial vision for this game is the girl is also a witch and will have some spells she can use depending on the number of cats she currently has. The spell will have an effect for example time stop, barrier around the safe zone so the cats can not go out anymore, mimics, etc. 
 
 Another improvement is to put more levels and make things difficult bit by bit. There will be more challenges at further levels such as the safe zone becoming smaller, or the witches who steal cats can also do some spells.
